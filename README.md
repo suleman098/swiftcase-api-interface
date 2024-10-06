@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# SwiftCase API Interface
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+The **SwiftCase API Interface** is a web application that facilitates interaction with the SwiftCase API for managing workflow status and tasks. Built with React, this application provides a user-friendly interface for uploading data, viewing tasks, and handling notifications.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Enter and submit Workflow Status IDs to fetch task data from the SwiftCase API.
+- Upload task-related data files in a specified format.
+- View loading indicators and error messages for better user experience.
+- Responsive design for optimal viewing on various devices.
+- Download the Data from the API into a .txt file
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Frontend:** React, Tailwind CSS, DaisyUI
+- **State Management:** React Context API
+- **Custom Hooks:** For fetching and uploading data
+- **Deployment:** GitHub for version control
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To get started with this project, follow these steps:
 
-### `npm run build`
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/suleman098/swiftcase-api-interface.git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Navigate to the project directory::**
+   ```bash
+   cd swiftcase-api-interface
+   
+3. **Install dependencies:**
+   ```bash
+   npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. **Run the application:**
+   ```bash
+   npm start
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Getting Started
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. **Installation**: Follow the installation steps outlined in the README file to clone the repository and install the necessary dependencies.
+2. **Run the Application**: Start the application by running `npm start` and navigate to `http://localhost:3000` in your web browser.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Entering Product Status ID
 
-## Learn More
+- **Input Field**: There is a text box available to enter the Product Status ID, which is an integer that identifies the collection type of tasks.
+- **Submit Button**: Click the "Submit" button to initiate the request.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Form Validation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Empty Input**: On button click, if the Product Status ID is not entered, an error message will be displayed indicating that the field is required.
+2. **Integer Validation**: The application checks whether the entered Product Status ID is an integer. If not, an error message will be shown, prompting the user to enter a valid integer.
 
-### Code Splitting
+### Fetching Task IDs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- When a valid Product Status ID is entered, the application makes a request to the SwiftCase API to fetch the task IDs associated with the specified Workflow Status ID.
+- For this implementation, you can use `Workflow Status ID = 1043`.
 
-### Analyzing the Bundle Size
+### Fetching Task Details
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- After retrieving the task IDs, the application will make additional requests to the SwiftCase API to fetch details for each task returned.
+- The task details will be stored in an array for further processing.
 
-### Making a Progressive Web App
+### Calculating Total Cost
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- The application sums the cost data for each task where the `Cancelled` field is equal to "No".
+- The calculated total cost is formatted as £X.XX, ensuring two decimal places are displayed.
 
-### Advanced Configuration
+### File Upload
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. The formatted task data (including Unix timestamps for date columns) can be saved to a file or outputted in a modal.
+2. If opting for file upload:
+   - The data is sent to the SwiftCase API's upload endpoint using the provided Task ID.
+   - The file is uploaded as a base-64 encoded string with a `.txt` extension and a MIME type of `text/plain`.
 
-### Deployment
+### Confirmation Message
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Upon successful upload of the file, a confirmation message will be displayed to inform the user that the file has been uploaded successfully.
+- If using a modal for displaying data, a close button is available to close the modal after reviewing the information.
 
-### `npm run build` fails to minify
+### Additional Notes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Ensure you have valid API keys and access rights to interact with the SwiftCase API.
+- The application is responsive and designed for optimal viewing on various devices.
+
+
+
+## API Integration
+This application communicates with the SwiftCase API to perform various operations. Ensure you have the correct API keys and access rights to interact with the API successfully.
+
+
+
+

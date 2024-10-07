@@ -46,7 +46,7 @@ To get started with this project, follow these steps:
 ### Getting Started
 
 1. **Installation**: Follow the installation steps outlined in the README file to clone the repository and install the necessary dependencies.
-2. **Run the Application**: Start the application by running `npm start` and navigate to `http://localhost:3000` in your web browser.
+2. **Run the Application**: Start the application by running `npm start` and navigate to `http://localhost/` in your web browser.
 
 ### Entering Product Status ID
 

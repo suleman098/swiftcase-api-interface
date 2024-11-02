@@ -15,8 +15,8 @@ export const AppProvider = ({ children }) => {
   const [FormattedTotalcost, setFormattedTotalcost] = useState(0);
 
   const subdomain = "demonstration";
-  const apiKey = "855dcc277783198d5afbb8d52890e6c4";
-  const uploadtaskID = 361;
+  const apiKey = "API_KEY";
+
 
   const resetStates = () => {
     setError("");
